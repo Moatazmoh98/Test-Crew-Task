@@ -23,7 +23,14 @@ public class HomePage extends basePage {
     private final By premiumPlan = By.id("name-premium");
     private final By premiumCurrency = By.id("currency-premium");
     private final By startYourTrialForPremium= By.id("premium-selection");
-
+    private final By signIn = By.id("signin");
+    private final By emailField = By.name("username");
+    private final By submit = By.cssSelector("#login-page-form > div.paymentMethod-listMain > button");
+    private final By password = By.name("password");
+    private final By mobilePhoneTextField =By.id("mobile");
+    private final By editButton = By.cssSelector("#main > div > div > div > div.payment-header > a");
+    private final By errorMessage  = By.xpath("//*[@id=\"login-page-form\"]/span");
+    private final By activateButton= By.cssSelector("#main > div > div:nth-child(7) > div.subscription-intro-btn > button");
 
     public WebElement getCountriesList() {
         return driver.findElement(countriesList);
@@ -74,5 +81,17 @@ public class HomePage extends basePage {
     public WebElement getBahrainLogo() {
         return driver.findElement(bahrainLogo);
     }
+    public WebElement getSignIn(){return driver.findElement(signIn);}
+    public WebElement getUserName(){return driver.findElement(emailField);}
+    public WebElement getSubmit(){return driver.findElement(submit);}
+    public WebElement getPassword(){return driver.findElement(password);}
+    public WebElement getErrorMessage(){return driver.findElement(errorMessage);}
+    public WebElement getActivateButton(){return driver.findElement(activateButton);}
+    public WebElement getMobilePhoneTextField(){return driver.findElement(mobilePhoneTextField);}
+    public WebElement getEditButton(){return driver.findElement(editButton);}
+
+
+
+
 
 }
