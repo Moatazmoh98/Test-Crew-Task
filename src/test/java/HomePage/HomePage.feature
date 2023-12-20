@@ -56,64 +56,95 @@ Feature: HomePage
 
     Given StcTv website is opened
     When press on start your trial for lite
-    Then the Lite package price is 15 SAR/month for KSA
+    Then the Lite package price is correct for KSA
 
   Scenario : check that Classic package prices and currency is correct for KSA
 
     Given StcTv website is opened
     When press on start your trial for classic
-    Then the Classic package price is 25 SAR/month for KSA
+    Then the Classic package price is correct for KSA
 
   Scenario : check that Premium package prices and currency is correct for KSA
 
     Given StcTv website is opened
     When press on start your trial for Premium
-    Then the Premium package price is 60 SAR/month for KSA
+    Then the Premium package price is correct for KSA
 
   Scenario : check that Lite package prices and currency is correct for Bahrain
 
     Given StcTv website is opened
-    And press on Arrow countries List
+    When press on Arrow countries List
     And select Bahrain Logo
-    When press on start your trial for lite
-    Then the Lite package price is 2 BHD/month for BAH
+    And press on start your trial for lite
+    Then the Lite package price is correct for BAH
 
   Scenario : check that Classic package prices and currency is correct for Bahrain
 
     Given StcTv website is opened
-    And press on Arrow countries List
+    When press on Arrow countries List
     And select Bahrain Logo
-    When press on start your trial for classic
-    Then the Classic package price is 3 BHD/month for BAH
+    And press on start your trial for classic
+    Then the Classic package price is correct for BAH
 
   Scenario : check that Premium package prices and currency is correct for Bahrain
 
     Given StcTv website is opened
-    And press on Arrow countries List
+    When press on Arrow countries List
     And select Bahrain Logo
-    When press on start your trial for Premium
-    Then the Premium package price is 6 BHD/month for BAH
+    And press on start your trial for Premium
+    Then the Premium package price is correct for BAH
 
   Scenario : check that Lite package prices and currency is correct for Kuwait
 
     Given StcTv website is opened
-    And press on Arrow countries List
+    When press on Arrow countries List
     And select Kuwait Logo
-    When press on start your trial for lite
-    Then the Lite package price is 1.2 KWD/month for KUW
+    And press on start your trial for lite
+    Then the Lite package price is correct for KUW
 
   Scenario : check that Classic package prices and currency is correct for Kuwait
 
     Given StcTv website is opened
-    And press on Arrow countries List
+    When press on Arrow countries List
     And select Kuwait Logo
-    When press on start your trial for classic
-    Then the Classic package price is 2.5 KWD/month for KUW
+    And press on start your trial for classic
+    Then the Classic package price is correct for KUW
 
   Scenario : check that Premium package prices and currency is correct for Kuwait
 
     Given StcTv website is opened
-    And press on Arrow countries List
+    When press on Arrow countries List
     And select Kuwait Logo
-    When press on start your trial for Premium
-    Then the Premium package price is 4.8 KWD/month for KUW
+    And press on start your trial for Premium
+    Then the Premium package price is correct for KUW
+
+    Scenario: check that unregistered user can't login into the system
+      Given StcTv website is opened
+      When press on sign in button
+      And fill user name field with data
+      And press on submit button
+      And fill password field with data
+      Then an error message should be displayed
+
+  Scenario: check that next button is disabled if no mail entered
+    Given StcTv website is opened
+    When press on sign in button
+    And press on submit button
+    Then validate that submit button is not clickable
+
+      Scenario: check that language of the website is not changes after click on start your trial button
+        Given StcTv website is opened
+        When press on start your trial for lite
+        And press on back button
+        Then check that the language is not change
+
+  Scenario: check that user can edit the phone number of the free account
+
+    Given StcTv website is opened
+    When press on Activate button
+    And type in mobile phone text field
+    And press on edit hypertext
+    Then mobile phone text filed should be reset
+    And mobile phone text filed should exist
+
+

@@ -217,5 +217,12 @@ public class HomePageStepDef extends BaseTests {
     public void mobilePhoneTextFiledShouldExist() {
         Assert.assertTrue(homePage.getMobilePhoneTextField().isDisplayed());
     }
+
+    @Then("validate that submit button is not clickable")
+    public void validateThatSubmitButtonIsNotClickable() {
+        Assert.assertFalse(homePage.getSubmit().isEnabled());
+        assertElementClickable(driver,homePage.getSubmit());
+
+    }
 }
 
